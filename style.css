@@ -1,0 +1,24 @@
+
+#years > button {
+    margin: 5px;
+}
+
+#reveal, #game-over {
+    display: none;
+}
+
+#correct-answer {
+    font-weight: bold;
+}
+
+#grade {
+    font-size: 150%;
+}
+
+.wrong {
+    color: red;
+}
+
+.correct {
+    color: green;
+}

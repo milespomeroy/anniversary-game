@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Miles and Michelle</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <h1>What year did this happen?</h1>
+        <h4>In commemoration of Miles and Michelle’s 9<sup>th</sup> Anniversary (April 30, 2014)</h4>
+
+
+        <div class="row">
+            <div id="years" class="col-md-1">
+                <button type="button" class="btn btn-default btn-sm">2004</button>
+                <button type="button" class="btn btn-default btn-sm">2005</button>
+                <button type="button" class="btn btn-default btn-sm">2006</button>
+                <button type="button" class="btn btn-default btn-sm">2007</button>
+                <button type="button" class="btn btn-default btn-sm">2008</button>
+                <button type="button" class="btn btn-default btn-sm">2009</button>
+                <button type="button" class="btn btn-default btn-sm">2010</button>
+                <button type="button" class="btn btn-default btn-sm">2011</button>
+                <button type="button" class="btn btn-default btn-sm">2012</button>
+                <button type="button" class="btn btn-default btn-sm">2013</button>
+                <button type="button" class="btn btn-default btn-sm">2014</button>
+            </div>
+
+            <div id="reveal" class="col-md-1">
+                <div id="answers">
+                    <div id="grade"></div>
+                    It was <span id="correct-answer"></span>
+                </div>
+                <div id="score">
+                    Score: <span id="current-score"></span>
+                </div>
+                <ul class="pager">
+                    <li class="previous"><a id="next">Next</a></li>
+                </ul>
+                <div id="game-over">
+                    <strong>Game Over</strong>. Refresh page to start over.
+                </div>
+            </div>
+
+            <div id="current-image" class="col-md-11">
+                <img src="" class="img-responsive img-thumbnail">
+            </div>
+
+        </div>
+
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
