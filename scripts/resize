@@ -1,0 +1,62 @@
+#!/bin/bash
+
+### VARIABLES ###
+
+ORG='originals' # name of the directory to place original images in
+orgdir="$ORG/$1"
+
+### ERROR CHECKING ###
+
+if [ ! -d "$1" ] # is argument a valid directory, will also show usage if no argument
+then
+    echo "Aborting: $1 is not a valid directory."
+
+    exit 1
+fi
+
+if ! builtin type -P jpegtran &>/dev/null # is jpegtran installed?
+then
+    echo "Aborting: jpegtran is required but is not installed. jpegtran
+can be found in the standard jpeg library."
+
+    exit 1
+fi
+
+if [ -d "$orgdir" ] # does the $ORG directory already exist, if so don't run
+then
+    echo "Aborting: $1 directory already exists in $ORG.
+
+Delete directory or change the name of the originals directory 
+in this script. Then try running again."
+
+    exit 1
+fi
+
+### THE PROGRAM ###
+
+mkdir -p $orgdir
+fullpath=`grealpath $orgdir`
+year=`basename "$fullpath"`
+
+cd $1
+
+i=1
+
+for jpg in *.jpg *.JPG *.jpeg *.JPEG
+do
+    if [ -e "$jpg" ] # does the file exist
+    then
+        printf -v j "%05d" $i
+        newname="$year-$j.jpg"
+        mv "$jpg" "$fullpath/$jpg"
+        convert "$fullpath/$jpg" -resize 480000@\> "$newname"
+        jpegtran -optimize -outfile "$newname" "$newname"
+        jpegtran -progressive -outfile "$newname" "$newname"
+
+        i=$((i+1))
+    fi
+done
+
+cd -
+
+exit 0
